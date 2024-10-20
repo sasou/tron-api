@@ -1,13 +1,13 @@
 {
-    "name": "fenguoz/tron-api",
+    "name": "sasou/tron-api",
     "description": "A PHP API for interacting with Tron (Trx)",
     "license": "MIT",
     "type":   "library",
-    "homepage": "https://github.com/fenguoz/tron-api",
+    "homepage": "https://github.com/sasou/tron-api",
     "authors": [
         {
-            "name": "Shamsudin Serderov",
-            "email": "steein.shamsudin@gmail.com"
+            "name": "sasou",
+            "email": "zaipd@qq.com"
         }
     ],
     "keywords": [
