@@ -79,7 +79,8 @@ class HttpProvider implements HttpProviderInterface
         $this->httpClient = new Client([
             'base_uri'  =>  $host,
             'timeout'   =>  $timeout,
-            'auth'      =>  $user && [$user, $password]
+            'auth'      =>  $user && [$user, $password],
+            'http_errors' => false,
         ]);
     }
 
@@ -183,6 +184,13 @@ class HttpProvider implements HttpProviderInterface
 
         if($status == 404) {
             throw new NotFoundException('Page not found');
+        }
+
+        if ($status === 429) {
+            $message = is_array($decodedBody) && isset($decodedBody['Error'])
+                ? (string) $decodedBody['Error']
+                : 'request rate exceeded (429)';
+            throw new TronException($message, 429);
         }
 
         return $decodedBody;

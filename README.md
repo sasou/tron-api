@@ -23,9 +23,10 @@ The following versions of PHP are supported by this version.
 ```php
 use IEXBase\TronAPI\Tron;
 
-$fullNode = new \IEXBase\TronAPI\Provider\HttpProvider('https://api.trongrid.io');
-$solidityNode = new \IEXBase\TronAPI\Provider\HttpProvider('https://api.trongrid.io');
-$eventServer = new \IEXBase\TronAPI\Provider\HttpProvider('https://api.trongrid.io');
+$headers = ['TRON-PRO-API-KEY' => 'your-trongrid-api-key'];
+$fullNode = new \IEXBase\TronAPI\Provider\HttpProvider('https://api.trongrid.io', 30000, false, false, $headers);
+$solidityNode = new \IEXBase\TronAPI\Provider\HttpProvider('https://api.trongrid.io', 30000, false, false, $headers);
+$eventServer = new \IEXBase\TronAPI\Provider\HttpProvider('https://api.trongrid.io', 30000, false, false, $headers);
 
 try {
     $tron = new \IEXBase\TronAPI\Tron($fullNode, $solidityNode, $eventServer);
